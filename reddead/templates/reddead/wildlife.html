@@ -1,0 +1,26 @@
+{% extends "reddead/base_generic.html" %}
+
+{% block content %}
+<main>
+    <article>
+        <section>
+        <h2>Latest question list</h2>
+        {% if latest_question_list %}
+        <ul class="list-box">
+            {% for question in latest_question_list%}
+            <li><a href="{% url 'reddead:wildlife_detail' question.id %}">{{ question.question_text}}</a></li>
+            {% endfor %}
+        </ul>
+      
+        {% else %}
+        <p>No wildlife polls are available. <li><a href="{% url 'reddead:index'  %}">Go home</a></li></p>
+        {% endif %}
+
+    </section>
+</article>
+
+
+
+</main>
+
+{%endblock%}

@@ -1,0 +1,80 @@
+{% extends "reddead/base_generic.html" %}
+{% load static %}
+
+{% block content %}
+<main>
+  
+  
+<table>
+ 
+<caption>Read Dead Redemption Characters</caption>
+
+<tr>
+<th>Title</th>
+<td>Read Dead Redemption 2</td>
+<td><a href="{% url 'reddead:character_create'%}">Character Creation</a></td>
+</tr>
+<tr>
+<th><img src="{% static 'reddead/videos/background.jpg' %}" height="100" width="170" alt="Read Dead" align="center"></th>
+<th><img src="{% static 'reddead/videos/field.jpg' %}" height="100" width="170" alt="Read Dead" align="center">
+<img src="{% static 'reddead/videos/horse.jpg' %}" height="100" width="170" alt="Read Dead" align="center">
+<img src="{% static 'reddead/videos/sunset.jpg' %}" height="100" width="170" alt="Read Dead" align="center">
+
+</tr>
+<tr>
+<th>Main Protagonist</th>
+<td>John Marston
+<br>
+Arthur Morgan
+</td>
+</tr>
+
+  
+<th>Characters</th>
+<td>
+<input id="searchbar" onkeyup="search_animal()" type="text"
+name="search" placeholder="Search animals..">
+</td>
+{% if character_list%}
+{% for character in character_list%}
+<tr>
+<td class="search_data">
+    
+    <a href="{% url 'reddead:character_detail' character.id %}">{{character.first_name}} {{character.last_name}}</a>
+   <br>
+
+</td>
+</tr>
+
+
+{%endfor%}
+
+
+{%else%}
+<p>no characters created yet.</p>
+
+{% endif %}
+
+
+<tr>
+<th>Rating</th>
+<td>M for Mature</td>
+</tr>
+<tr>
+<th>Description</th>
+<td>Set in a fictional recreation of the American Old West in 1899, 
+Red Dead Redemption 2 focuses on the life of Arthur Morgan and his position in the notorious Van der Linde gang. 
+The game follows the gang's decline as they are pursued by lawmen, 
+fellow gangs and Pinkerton agents.. </td>
+</tr>
+</table>
+
+  
+
+</section>
+
+
+</main>
+<script src="{% static 'reddead/search_bar.js' %}"></script>
+
+{%endblock%}

@@ -1,0 +1,33 @@
+{% extends "reddead/base_generic.html" %}
+{% load static %}
+{% block content %}
+
+<main>
+  <h2>There is so much to do in Read Dead Redemption 2</h2>
+  <ul class="news">
+    <li>Hunting, Fishing, playing poker, drinking games</li>
+    <li>Finding dinosaur bones.</li>
+    <li>There are tons of side quests and additional gameplay</li>
+    <li> With stunning graphics and an exceptional original storyline</li>
+  
+  
+    <li>
+      <strong>Number of characters created: {{ num_characters }}</strong>
+    </li>
+    <li>
+      <strong>Number of groups created: {{num_groups}}
+    </li>
+    <li>
+      <strong>Characters that died first: {{last_five_dead|join:", "}}</strong>
+    </li>
+    <li>
+      <strong>You have visited this page {{num_visits}} time{{num_visits|pluralize}}.</strong>
+    </li>
+
+  </ul>
+    <strong> Read Dead Redemption 2 delivers.</strong>
+    <br>
+  
+  <script src="{% static 'reddead/index.js' %}"></script>
+</main>
+{% endblock %}

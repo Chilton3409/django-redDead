@@ -1,0 +1,30 @@
+{% extends "reddead/base_generic.html"%}
+{% block content %}
+    <main>
+        <article>
+        <h2>
+            {{group.title}}
+        </h2>
+     
+            <section>
+                <p>
+       
+                {{group.summary}}
+            </p>
+        </section>
+        <section>
+
+            <p>
+                {{group.characters.all|join:", "}}
+            </p>
+        </section>
+    </article>
+
+    </main>
+    <footer>
+        <p>
+            <a href="{%url 'reddead:group_update' group.id %}">Update Group?</a>
+            <a href="{%url 'reddead:group_delete' group.id %}">Delete Group?</a>
+        </p>
+    </footer>
+{% endblock %}

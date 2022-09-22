@@ -1,0 +1,25 @@
+{% extends "reddead/base_generic.html" %}
+{%block content %}
+<main>
+    {% if group_list%}
+    {%for group in group_list %}
+    <section>
+        <p>
+           <a href="{{ group.get_absolute_url  }}">{{group.title}}
+        </p>
+       
+
+
+    </section>
+    {% endfor %}
+    <footer>
+        <p><a href="{% url 'reddead:group_create' %}">Create a new group?</a></p>
+        </footer>
+    {% else %}
+    <section>
+        <p>No groups available</p>
+    </section>
+    {% endif %}
+    
+</main>
+{% endblock %}

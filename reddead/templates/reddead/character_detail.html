@@ -1,0 +1,39 @@
+{% extends "reddead/base_generic.html" %}
+{% block aside %}
+
+<aside>
+    <h3>{{character.first_name}}, {{character.last_name}}</h3>
+    <p class="news">
+        {{character.summary}}
+    </p>
+
+</aside>
+{% endblock%}
+{% block content%}
+<main>
+
+<article>
+    <h2>{{character.first_name}}, {{character.last_name}}</h2>
+    <section>
+<p>affiliation: {{character.related_gang}}</p>
+<p>Date of birth: {{character.date_of_birth}}</p>
+<p>Date of death: {{character.date_of_death}}</p>
+    </section>
+</article>
+<article>
+    
+    <section>
+<ul>
+    <li>
+<a href="{% url 'reddead:character_update' character.id%}">Update Character?</a>
+    </li>
+    <li>
+<a href="{% url 'reddead:character_delete' character.id%}">Delete Character?</a>
+    </li>
+</ul>
+    </section>
+</article>
+
+</main>
+
+{% endblock %}

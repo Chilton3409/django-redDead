@@ -1,0 +1,39 @@
+{% extends "reddead/base_generic.html" %}
+{% block content %}
+<main>
+<article>
+   <section>
+
+      
+           
+            
+                <form action="{% url 'reddead:vote' question.id %}" method="post">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>
+                            <h1>{{ question.question_text }}</h1>
+                        </legend>
+                        {% if error_message %}<p><strong>{{ error_message }}</strong></p> {% endif %}
+                        <div id="checkbox">
+                        {% for choice in question.choice_set.all %}
+
+                        <input type="radio" name="choice" id="choice {{ forloop.counter }}" value="{{choice.id}}">
+                        <label for="choice{{ forloop.counter}}">{{choice.choice_text}}</label><br>
+                        {% endfor %}
+                        </div>
+                    </fieldset>
+                    <input type="submit" value="Vote">
+                </form>
+         
+    <section>
+    </article>
+
+
+
+</main>
+
+
+
+
+
+{% endblock %}

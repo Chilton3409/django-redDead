@@ -1,0 +1,14 @@
+{% extends "reddead/base_generic.html" %}
+
+{%block content %}
+<main>
+<h1>Delete Character?</h1>
+<p>are you sure you want to delete the character: {{character }}?</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete.">
+</form>
+</main>
+
+{% endblock %}
